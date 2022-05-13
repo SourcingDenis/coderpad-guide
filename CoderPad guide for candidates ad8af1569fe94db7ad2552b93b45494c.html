@@ -1,0 +1,672 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>CoderPad guide for candidates</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ad8af156-9fe9-4db7-ad25-52b93b45494c" class="page mono"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/gradients_3.png" style="object-position:center 60%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">👁️‍🗨️</span></div><h1 class="page-title">CoderPad guide for candidates</h1></header><div class="page-body"><p id="37b37640-6d55-44af-a6e0-1c137e3254d5" class="">CoderPad is a platform for doing technical phone screens or remote interviews in the browser. A pad is similar to common Integration Development Environments (IDEs). You write code in the left-hand pane, run code with the ‘Run’ button, and view output in the right-hand pane. The right pane also includes an interactive Read–Evaluate–Print Loop (REPL) for some <a href="https://coderpad.io/languages/">language</a>. The <strong>Reset</strong> button clears the output in the right pane, while the code you’ve written in the left pane remains intact.</p><blockquote id="66a7b0fb-e26b-4b3a-81b6-4040c12026cd" class="">✅ Preparation PROtip: One of the best ways to prepare for a CoderPad interview or take-home test is to use the sandbox environment, which you can access below:</blockquote><p id="b7c66f48-94c9-491d-8016-ea6d7d12f3c8" class="">
+</p><figure id="d005ce65-21ac-4bb5-a92d-d1fd75143a37"><div class="source"><a href="https://app.coderpad.io/sandbox">https://app.coderpad.io/sandbox</a></div></figure><p id="e8a37c87-a7ae-4801-8f25-bd7cd8449031" class="">
+</p><h1 id="c2b95961-7fee-41b7-a2e0-1ff6cb89080e" class=""><strong>Assessment types</strong></h1><p id="c0b23bd2-2a31-4df4-ab5c-202ba33182f2" class="">CoderPad supports two types of assessments, <em>live interviews</em> and <em>take-home projects</em>.</p><div id="8e83bcc0-c3da-40f1-aa03-ce827764cea7" class="column-list"><div id="7fd7d322-851c-47c1-b85e-6eae631532b6" style="width:50%" class="column"><figure id="a45174ab-d73c-42a8-bd0a-1a14a0f0b4ff" class="link-to-page"><a href="CoderPad%20guide%20for%20candidates%20ad8af1569fe94db7ad2552b93b45494c/Take-home%20projects%20a45174abd73c42a8bd0a1a14a0f0b4ff.html"><span class="icon">💻</span>Take-home projects</a></figure><p id="ceb01088-95fa-4125-9285-8788e2be2322" class="">You will receive a CoderPad link to the project. Click on the link to see detailed instructions about the task, including the amount of time you have to complete it. The project starts once you enter the CoderPad environment. You can start coding immediately. The amount of time you have left appears in the bottom left-hand corner.</p><p id="bb4d65c8-6e39-450f-abd1-417494c08920" class="">When you are ready, submit your code by clicking the <strong>Submit Take Home</strong> button at the bottom right-hand corner of the screen. If you don’t complete the challenge within the allotted time, your code will be submitted when the time runs out.</p></div><div id="854ea649-4de0-4b71-85ce-a280e933313e" style="width:50%" class="column"><figure id="e7b64413-f967-4d95-8607-a149a8943813" class="link-to-page"><a href="CoderPad%20guide%20for%20candidates%20ad8af1569fe94db7ad2552b93b45494c/Live%20interviews%20e7b64413f9674d958607a149a8943813.html"><span class="icon">⚒️</span>Live interviews</a></figure><p id="415dae83-5a71-4509-b48d-7f516bf47e84" class="">You will receive a CoderPad link prior to your interview. At the scheduled time, open the link, input your name, and join the interview. Your interviewer may have you connect via a video call, which you can do by selecting the <strong>Start Call</strong> button in the bottom left corner of the pad.</p></div></div><h1 id="b99ad999-ea2d-4406-8507-98197b65ddc7" class="">Useful tips</h1><div id="a8f1fdb9-c7dd-4d89-a517-d2acbc55d3cd" class="column-list"><div id="60d26b97-69f3-4708-8a75-57eaf5fa4f82" style="width:50%" class="column"><h3 id="1b2470f8-419f-49fd-bd36-3f84cc4b3a65" class=""><details open=""><summary><strong>Programming languages and testing</strong></summary></details></h3><div class="indented"><p id="947f26bb-c2e9-445b-86f3-6621a771af58" class="">We support most programming languages, many with autocomplete functions. We also have unit testing suites and other packages and libraries. See our <a href="https://coderpad.io/languages/">languages</a> page for more details.</p><p id="e0169842-678d-4027-aac6-1503beb3d830" class="">For the languages that support autocomplete, you may need to toggle autocomplete to “Enabled” from the <em>Settings </em>menu during your interview if you want it. To access language information during your interview, click the <strong>Info</strong> button next to the language name at the top of your pad.</p><figure id="ebb81be1-9c1c-40dc-b8fa-8d75387a2d10" class="image"><a href="https://d2h1bfu6zrdxog.cloudfront.net/wp-content/uploads/2022/04/infotab-1024x477.png"><img style="width:768px" src="https://d2h1bfu6zrdxog.cloudfront.net/wp-content/uploads/2022/04/infotab-1024x477.png"/></a></figure></div></div><div id="a99e1efe-3ea8-47f0-80c0-05e926ddf7f8" style="width:50%" class="column"><h3 id="bf2b8e6e-be63-4bb0-97bc-0ea3dacf5fd8" class=""><details open=""><summary><strong>Customising editor settings</strong></summary></details></h3><div class="indented"><p id="d58f283d-cda0-40dd-b719-84fd3df20c8f" class="">Click the <strong>Settings</strong> button in the lower-right corner to customize settings, such as code autocompletion for supported languages, <a href="https://coderpad.io/resources/docs/pads/code-editor/">bracket auto-closure</a>, unique tab size, larger font size, lighter color theme, and to change your key bindings from normal to Vim or Emacs.</p><figure id="9ab3ec04-5f9e-4f58-93ac-711c9e286510" class="image"><a href="https://d2h1bfu6zrdxog.cloudfront.net/wp-content/uploads/2022/04/candidatesettings-1024x476.png"><img style="width:768px" src="https://d2h1bfu6zrdxog.cloudfront.net/wp-content/uploads/2022/04/candidatesettings-1024x476.png"/></a></figure><p id="29f00559-7eda-4be1-b7fa-96a109dd5474" class="">Most settings are disabled by default. Changing your settings does not affect your interviewer’s settings.</p><blockquote id="e6832943-58f9-4abb-9592-cb369aca73fa" class="">✅ You can find the Emacs key mappings here and the Vim key mappings here. Please note that they cannot be custom mapped at this time.</blockquote></div></div></div><div id="3e7c65cf-b2f2-48e3-a246-ed9349e9619a" class="column-list"><div id="6e9e2782-3d2e-4412-8afc-d33d509c6a03" style="width:50%" class="column"><h3 id="4dd50d8d-e8ec-43e8-8eb2-4dc65900393f" class=""><details open=""><summary><strong>Drawing Mode</strong></summary></details></h3><div class="indented"><p id="a355027d-29ca-432b-8d32-a28b1813ff89" class="">Interviewers may enable<em> Drawing Mode</em> in a pad to describe a system or diagram an architecture. For more detailed instructions on using Drawing Mode <a href="https://coderpad.io/resources/docs/drawing-mode/">check out our user guide</a>.</p><figure id="64eafa17-94ef-409b-86a0-13266028234c" class="image"><a href="https://d2h1bfu6zrdxog.cloudfront.net/wp-content/uploads/2022/04/drawingmode-1024x476.png"><img style="width:768px" src="https://d2h1bfu6zrdxog.cloudfront.net/wp-content/uploads/2022/04/drawingmode-1024x476.png"/></a></figure></div></div><div id="0c9b39ff-cfc1-4553-823f-e26de19b7c35" style="width:50.000000000000014%" class="column"><h3 id="f7faf304-9e37-4951-95e2-3570c4f70a7f" class=""><details open=""><summary><strong>Try it out ahead of time!</strong></summary></details></h3><div class="indented"><p id="241fdfa3-9d0b-4000-a33f-a753f8778c60" class="">You can try out CoderPad in this embedded sandbox:</p><blockquote id="c263d46a-9517-446d-ac9f-49dc7a2f81a0" class="">✅ CoderPad supports common IDE keyboard shortcuts. The full list can be found here.</blockquote><p id="1711516f-29e8-45c7-a9a3-03748bb72420" class="">Each company creates their own interview questions, so there are no practice questions on our site.</p><p id="ac75a6ed-35b9-413f-8c57-cd755edcf634" class="">We do encourage you to try out the <a href="https://coderpad.io/sandbox/">sandbox</a> environment which gives you a CoderPad session that is nearly identical to a real CoderPad interview – minus the multi-user functions and the ability to save the session.</p></div></div></div><p id="1ea7dfe4-4e01-478c-b5e1-fa8f57e789cd" class="">
+</p><h1 id="568f0f29-8f98-4952-a10e-eb9f7b72138c" class=""><details open=""><summary>FAQs</summary></details></h1><div class="indented"><h3 id="32fd70ff-b4e8-4356-a6f4-b21bd7c62963" class=""><details open=""><summary><strong>Does CoderPad auto-close brackets?</strong></summary></details></h3><div class="indented"><p id="85d2de54-fca1-494f-8017-136ff9848922" class="">Auto-close brackets is disabled by default, but you can enable it using the Settings menu. Look for “Settings” in the bottom right corner of any pad or in the Sandbox.</p></div><h3 id="b9e4223f-1bd9-4da5-8112-b871c7971d2f" class=""><details open=""><summary><strong>Do you have emacs?</strong></summary></details></h3><div class="indented"><p id="7c2a4397-2e63-47a8-beb3-b87d6a724257" class="">Yes! Look for “Settings” in the bottom right corner of any pad or in the Sandbox.</p></div><h3 id="399a40a4-5ad3-4d23-8197-f2027fcf7177" class=""><details open=""><summary><strong>Do you have Vim mode?</strong></summary></details></h3><div class="indented"><p id="ea95bc76-42fb-4b77-ba31-77a3d0b1ac24" class="">Yes! You can enable Vim mode using the Settings menu. Look for “Settings” in the bottom right corner of any pad or in the Sandbox.</p></div><h3 id="466effcf-ba6d-47aa-998c-8cbe528533d5" class=""><details open=""><summary><strong>Do you have code autocompletion for [language]?</strong></summary></details></h3><div class="indented"><p id="1b363a35-682c-40a4-81ed-b63d3d641d56" class="">Check out the language you’re interested in on our <a href="https://coderpad.io/languages/">Languages</a> page – we specify whether autocomplete is enabled.</p></div><h3 id="41a995db-9396-4ed2-bf8c-418021d264ac" class=""><details open=""><summary><strong>Do candidates have to register an account or pay to use CoderPad?</strong></summary></details></h3><div class="indented"><p id="aadb5d39-c298-4bac-b5b9-edfef2349c32" class="">Candidates never have to register or pay to participate in a CoderPad interview. You also have unlimited use of our free practice <a href="https://app.coderpad.io/sandbox">Sandbox</a>.</p></div><h3 id="44bca30f-d4a5-41f8-8e2d-925fa27e1345" class=""><details open=""><summary><strong>Does CoderPad have any other color schemes?</strong></summary></details></h3><div class="indented"><p id="bcee73ea-b773-446c-89c1-5a1ce83bd3f5" class="">Yes! CoderPad defaults to Dark mode, but you can switch to Light mode from the settings menu. Look for “Settings” in the bottom right corner of any pad or in the Sandbox.</p></div><h3 id="90cb1bf4-a003-466d-a7f0-611aac151258" class=""><details open=""><summary><strong>Are there any built-in practice questions for candidates?</strong></summary></details></h3><div class="indented"><p id="8ae97515-4477-4834-ad97-ef4e9a7c3155" class="">No, companies each provide their own questions for CoderPad interviews so there is no existing database of questions. We recommend you check out the getting started guide for candidates at the bottom of this page to prepare for your upcoming interview. Good luck!</p></div><h3 id="eab49009-3aaa-40f5-8d52-35b0fed2821c" class=""><details open=""><summary><strong>Can I change the font or tab size in CoderPad?</strong></summary></details></h3><div class="indented"><p id="07cb66c4-496d-4a28-bf95-793be670a20a" class="">Yes! Look for “Settings” in the bottom right corner of any pad or in the Sandbox.</p></div><h3 id="17a7b152-f680-4c6b-98b1-115f246bd0a8" class=""><details open=""><summary><strong>What are the memory, disk, or network limits placed on pad containers?</strong></summary></details></h3><div class="indented"><p id="e76198dd-0da8-4e90-9223-95c9c2f4c311" class="">Currently, containers are given 512mb of RAM, and the equivalent of two cores for 5 seconds, and one core thereafter. Data transmitted by your program over the internet is limited to 0.75mb.</p></div><h3 id="9a9b7431-f6ed-475a-9a49-7765dbb78ea5" class=""><details open=""><summary><strong>Why wasn’t I able to run code during an interview?</strong></summary></details></h3><div class="indented"><p id="8288be7d-e22c-4ebe-8a3f-a1351c554dc0" class="">Some companies disable code execution during an interview to reduce emphasis on fixing minor typos, and instead focus on big picture thinking. If you see only one pane instead of two and “Execution Disabled” in the top left corner, that means code execution is disabled.</p></div></div></div></article></body></html>
